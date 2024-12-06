@@ -1,65 +1,57 @@
-import request from "@/utils/request";
+import service from "@/utils/request";
 
-//竞赛列表
 export function getExamListService(params) {
-  return request({
-    url: "/friend/exam/semiLogin/list",
+  return service({
+    url: "/exam/semiLogin/redis/list",
     method: "get",
     params,
   });
 }
 
-// 竞赛题目列表
-export function getExamQuestionListService(params) {
-  return request({
-    url: "/friend/exam/examQuestion/list",
+export function getExamRankListService(params) {
+  return service({
+    url: "/exam/rank/list",
     method: "get",
     params,
   });
 }
 
-// 报名参赛
 export function enterExamService(enterExamDTO) {
-  return request({
-    url: "/friend/user/exam/enter",
+  return service({
+    url: "/user/exam/enter",
     method: "post",
     data: enterExamDTO,
   });
 }
 
-//提交竞赛
-export function submitExamService(userExamDTO) {
-  return request({
-    url: "/friend/user/exam/submit",
-    method: "post",
-    data: userExamDTO,
-  });
-}
-
-//获取用户竞赛列表
 export function getMyExamListService(params = {}) {
-  return request({
-    url: "/friend/user/exam/list",
+  return service({
+    url: "/user/exam/list",
     method: "get",
     params,
   });
 }
 
-//查看竞赛排名
-export function getExamRankService(params = {}) {
-  return request({
-    url: "/friend/exam/rank/list",
+export function getExamFirstQuestionService(examId) {
+  return service({
+    url: "/exam/getFirstQuestion",
     method: "get",
-    params,
+    params: { examId },
   });
 }
 
-//查看竞赛基本信息
-export function getExamBaseInfoService(examId) {
-  return request({
-    url: "/friend/exam/baseInfo",
+export function examPreQuestionService(examId, questionId) {
+  return service({
+    url: "/exam/preQuestion",
     method: "get",
-    params: {examId},
+    params: { examId,questionId},
   });
 }
 
+export function examNextQuestionService(examId, questionId) {
+  return service({
+    url: "/exam/nextQuestion",
+    method: "get",
+    params: { examId, questionId },
+  });
+}

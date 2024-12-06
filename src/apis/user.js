@@ -1,63 +1,63 @@
-import request from "@/utils/request";
+import service from "@/utils/request";
 
-export function registerService(params = {}) {
-  return request({
-    url: "/friend/user/register",
-    method: "post",
-    data: params,
-  });
-}
-
-export function loginService(params = {}) {
-  return request({
-    url: "/friend/user/login",
+export function sendCodeService(params = {}) {
+  return service({
+    url: "/user/sendCode",
     method: "post",
     data: params,
   });
 }
 
 export function codeLoginService(params = {}) {
-  return request({
-    url: "/friend/user/code/login",
+  return service({
+    url: "/user/code/login",
     method: "post",
     data: params,
   });
 }
 
-export function getSimpleUserInfoService() {
-  return request({
-    url: "/friend/user/getSimpleUserInfo",
+export function logoutService() {
+  return service({
+    url: "/user/logout",
+    method: "delete",
+  });
+}
+
+export function getUserInfoService() {
+  return service({
+    url: "/user/info",
     method: "get",
   });
 }
 
 export function getUserDetailService(userId) {
-  return request({
-    url: "/friend/user/detail",
+  return service({
+    url: "/user/detail",
     method: "get",
     params: { userId },
   });
 }
 
+
 export function editUserService(params = {}) {
-  return request({
-    url: "/friend/user/edit",
+  return service({
+    url: "/user/edit",
     method: "put",
     data: params,
   });
 }
 
-export function uploadHeadImageService(params = {}) {
-  return request({
-    url: "/friend/user/head-image/upload",
+export function updateHeadImageService(params = {}) {
+  return service({
+    url: "/user/head-image/update",
     method: "put",
     data: params,
   });
 }
 
-export function sendCodeService(params = {}) {
-  return request({
-    url: "/friend/user/semiLogin/sendCode",
+export function userSubmitService(params = {}) {
+  return service({
+    url: "/user/question/rabbit/submit",
     method: "post",
     data: params,
   });
