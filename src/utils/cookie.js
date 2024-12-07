@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 
-const TokenKey = "Spring-Oj-b-Token";
+const TokenKey = "Oj-c-Token";
 
 export function getToken() {
     return Cookies.get(TokenKey);

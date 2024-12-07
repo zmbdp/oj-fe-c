@@ -2,9 +2,9 @@
   <div class="oj-navbar">
     <div class="oj-navbar-menus">
       <img class="oj-navbar-logo" src="@/assets/logo.png" />
-      <el-menu router class="oj-navbar-menu" mode="horizontal">
-        <el-menu-item index="/c-oj/home/question">题库</el-menu-item>
-        <el-menu-item index="/c-oj/home/exam">竞赛</el-menu-item>
+      <el-menu class="oj-navbar-menu" mode="horizontal">
+        <el-menu-item>题库</el-menu-item>
+        <el-menu-item>竞赛</el-menu-item>
       </el-menu>
     </div>
     <div class="oj-navbar-users">
@@ -12,18 +12,18 @@
       <el-dropdown v-if="isLogin">
         <div class="oj-navbar-name">
           <img class="oj-head-image" v-if="isLogin" :src="userInfo.headImage" />
-          <span>{{ userInfo.nickName }}</span>
+          <span class="oj-navbar-nick-name">{{ userInfo.nickName }}</span>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item @click="goUserDetail">
+            <el-dropdown-item @click="goUserInfo">
               <div class="oj-navabar-item">
                 <span>个人中心</span>
               </div>
             </el-dropdown-item>
             <el-dropdown-item @click="goMyExam">
               <div class="oj-navabar-item">
-                <span>我的竞赛</span>
+                <span>我的比赛</span>
               </div>
             </el-dropdown-item>
             <el-dropdown-item>
@@ -45,56 +45,37 @@ import router from '@/router';
 import { getToken, removeToken } from '@/utils/cookie';
 import { logoutService, getUserInfoService } from '@/apis/user';
 
-const isLogin = ref(false)
+const isLogin = ref(false);
+
 const userInfo = reactive({
   nickName: '',
   headImage: ''
-})
+});
 
 async function checkLogin() {
   if (getToken()) {
-    //  后端是需要提供一个接口完成，这两件事情的
-    //  1. 判断当前token是否过期（判断当前用户是否还处于登录状态）
-    //  2. 将当前用户的头像、昵称返回
-    const userInfoRes = await getUserInfoService()
-    Object.assign(userInfo, userInfoRes.data)
-    isLogin.value = true
+    const userInfoRes = await getUserInfoService();
+    Object.assign(userInfo, userInfoRes.data);
+    isLogin.value = true;
   }
 }
-checkLogin()
+
+checkLogin();
 
 function goLogin() {
-  router.push('/c-oj/login')
-}
-
-function goMyExam() {
-  router.push('/c-oj/home/user/exam')
-}
-
-function goUserDetail() {
-  router.push('/c-oj/home/user/detail')
-}
-
-function goMessage() {
-  router.push('/c-oj/home/user/message')
+  router.push('/c-oj/login');
 }
 
 async function handleLogout() {
-  await ElMessageBox.confirm(
-    '确认退出',
-    '温馨提示',
-    {
-      confirmButtonText: '确认',
-      cancelButtonText: '退出',
-      type: 'warning',
-    }
-  )
-  await logoutService()
-  removeToken()
-  isLogin.value = false
+  await ElMessageBox.confirm('确认退出', '温馨提示', {
+    confirmButtonText: '确认',
+    cancelButtonText: '取消',
+    type: 'warning',
+  });
+  await logoutService();
+  removeToken();
+  isLogin.value = false;
 }
-
-
 </script>
 
 <style lang="scss" scoped>
@@ -104,7 +85,6 @@ async function handleLogout() {
   align-items: center;
   padding: 0 20px;
   box-sizing: border-box;
-
   max-width: 1520px;
   margin: 0 auto;
 
@@ -137,7 +117,6 @@ async function handleLogout() {
   }
 
   .oj-navbar-menu {
-    // margin-left: 18px;
     width: 600px;
     border: none;
 
@@ -182,6 +161,7 @@ async function handleLogout() {
     height: 30px;
     border-radius: 30px;
     margin-right: 10px;
+    object-fit: cover; /* 保证图片不被拉伸 */
   }
 
   .oj-navbar-name {
@@ -191,9 +171,17 @@ async function handleLogout() {
     color: #000;
     margin-left: 15px;
     font-size: 20px;
-    width: 100px;
     display: flex;
     align-items: center;
+    flex-shrink: 0; /* 防止昵称过长时影响布局 */
+  }
+
+  .oj-navbar-nick-name {
+    max-width: 150px; /* 设置最大宽度 */
+    white-space: nowrap; /* 不换行 */
+    overflow: hidden; /* 超出隐藏 */
+    text-overflow: ellipsis; /* 超出部分显示省略号 */
+    margin-left: 8px; /* 给昵称添加一点间距 */
   }
 
   .oj-navabar-item {

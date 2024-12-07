@@ -47,6 +47,7 @@ let mobileForm = reactive({
   phone: '',
   code: ''
 })
+
 let txt = ref('获取验证码')
 let timer = null
 async function getCode() {
@@ -70,7 +71,6 @@ async function loginFun() {
   router.push('/c-oj/home')
 }
 </script>
-
 
 <style lang="scss" scoped>
 .login-page {
@@ -195,7 +195,7 @@ async function loginFun() {
         margin-top: 90px;
         width: 456px;
         height: 48px;
-        background: #96E1FE;
+        background: #32C5FF;
         border-radius: 8px;
         cursor: pointer;
         display: flex;
@@ -212,7 +212,7 @@ async function loginFun() {
         }
 
         &:hover {
-          background: #32C5FF;
+          background: #96E1FE;
         }
       }
 

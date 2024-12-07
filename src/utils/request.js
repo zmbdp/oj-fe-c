@@ -36,7 +36,6 @@ service.interceptors.response.use(
                 type: 'error',
             })
             removeToken();
-            router.push('/oj/login')
             return Promise.reject(new Error(msg));
         } else if (code !== 1000) {
             ElMessage({

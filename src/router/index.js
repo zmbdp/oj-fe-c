@@ -3,10 +3,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    // {
-    //   path:"/",
-    //   redirect:'/c-oj/home/question',
-    // },
+    {
+      path:"/",
+      // redirect:'/c-oj/home/question',
+      redirect:'/c-oj/home',
+    },
     // {
     //   path: "/c-oj/home", 
     //   name: "home",

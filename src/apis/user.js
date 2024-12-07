@@ -1,5 +1,6 @@
 import service from "@/utils/request";
 
+// 获取验证码接口
 export function sendCodeService(params = {}) {
   return service({
     url: "/user/sendCode",
@@ -8,6 +9,7 @@ export function sendCodeService(params = {}) {
   });
 }
 
+// 登录接口
 export function codeLoginService(params = {}) {
   return service({
     url: "/user/code/login",
@@ -16,6 +18,7 @@ export function codeLoginService(params = {}) {
   });
 }
 
+// 退出登录，申请删除 redis 里面的 token
 export function logoutService() {
   return service({
     url: "/user/logout",
@@ -23,6 +26,7 @@ export function logoutService() {
   });
 }
 
+// 获取用户的头像和昵称
 export function getUserInfoService() {
   return service({
     url: "/user/info",
