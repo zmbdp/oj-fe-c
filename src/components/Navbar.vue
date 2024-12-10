@@ -2,9 +2,9 @@
   <div class="oj-navbar">
     <div class="oj-navbar-menus">
       <img class="oj-navbar-logo" src="@/assets/logo.png" />
-      <el-menu class="oj-navbar-menu" mode="horizontal">
-        <el-menu-item>题库</el-menu-item>
-        <el-menu-item>竞赛</el-menu-item>
+      <el-menu router class="oj-navbar-menu" mode="horizontal">
+        <el-menu-item index="/c-oj/home/question">题库</el-menu-item>
+        <el-menu-item index="/c-oj/home/exam">竞赛</el-menu-item>
       </el-menu>
     </div>
     <div class="oj-navbar-users">
@@ -65,6 +65,19 @@ checkLogin();
 function goLogin() {
   router.push('/c-oj/login');
 }
+
+// function goMyExam() {
+//   router.push('/c-oj/home/user/exam')
+// }
+
+// function goUserDetail() {
+//   router.push('/c-oj/home/user/detail')
+// }
+
+// function goMessage() {
+//   router.push('/c-oj/home/user/message')
+// }
+
 
 async function handleLogout() {
   await ElMessageBox.confirm('确认退出', '温馨提示', {
