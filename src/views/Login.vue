@@ -68,7 +68,7 @@ async function getCode() {
 async function loginFun() {
   const loginRef = await codeLoginService(mobileForm)
   setToken(loginRef.data)
-  router.push('/c-oj/home')
+  router.push('/c-oj/home/question')
 }
 </script>
 

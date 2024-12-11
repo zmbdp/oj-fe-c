@@ -86,8 +86,8 @@ const examList = ref([]) //题目列表
 const total = ref(0)
 const selectedOption = ref(0); // 初始化选中的文本
 const options = ref([
-    { label: '未完赛', value: 0 },
-    { label: '历史竞赛', value: 1 },
+    { label: '当前竞赛', value: 0 },
+    { label: '往期竞赛', value: 1 },
 ])
 const params = reactive({
     pageNum: 1,
