@@ -66,9 +66,9 @@ function goLogin() {
   router.push('/c-oj/login');
 }
 
-// function goMyExam() {
-//   router.push('/c-oj/home/user/exam')
-// }
+function goMyExam() {
+  router.push('/c-oj/home/user/exam')
+}
 
 // function goUserDetail() {
 //   router.push('/c-oj/home/user/detail')

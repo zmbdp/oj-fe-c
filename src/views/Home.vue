@@ -5,8 +5,7 @@
                 <Navbar></Navbar>
             </div>
         </div>
-        <div>
-            <!-- <div v-if="$route.meta.showBanner"> -->
+        <div v-if="$route.meta.showBanner">
             <img src="@/assets/images/log-banner.png" class="banner-img" />
         </div>
     </div>
@@ -26,9 +25,12 @@ import Navbar from '@/components/Navbar.vue'
     padding-top: 20px;
 
     .banner-img {
-        width: 100%; /* 保证宽度自适应 */
-        height: auto; /* 保证高度按比例自适应 */
-        max-width: 1520px; /* 限制最大宽度 */
+        width: 100%;
+        /* 保证宽度自适应 */
+        height: auto;
+        /* 保证高度按比例自适应 */
+        max-width: 1520px;
+        /* 限制最大宽度 */
         margin: 0 auto;
         border-radius: 16px;
     }

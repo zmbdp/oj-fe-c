@@ -181,14 +181,22 @@ async function checkLogin() {
 async function enterExam(examId) {
     await checkLogin()
     if (!isLogin.value) {
-        ElMessage.error('请先登录后报名参赛,谢谢')
+        ElMessage({
+            showClose: true,
+            message: '请先登录后报名参赛,谢谢',
+            type: 'error',
+        })
         return
     }
     const enterExamDTO = ref({
         examId: examId
     })
     await enterExamService(enterExamDTO.value)
-    ElMessage.success('您已报名成功，请按时参赛',)
+    ElMessage({
+        showClose: true,
+        message: '您已报名成功，请按时参赛',
+        type: 'success',
+    })
     getExamList() //报名成功后刷新竞赛列表
 }
 

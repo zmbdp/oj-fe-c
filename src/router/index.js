@@ -24,12 +24,12 @@ const router = createRouter({
           component: () => import('@/views/Exam.vue'),
           meta: {showBanner: true}
         },
-        // {
-        //   path: 'user/exam',
-        //   name: 'userExam',
-        //   component: () => import('@/views/UserExam.vue'),
-        //   meta: {showBanner: false}
-        // },
+        {
+          path: 'user/exam',
+          name: 'userExam',
+          component: () => import('@/views/UserExam.vue'),
+          meta: {showBanner: false}
+        },
         // {
         //   path: 'user/message',
         //   name: 'userMessage',
