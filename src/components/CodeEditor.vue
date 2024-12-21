@@ -15,7 +15,7 @@ import "ace-builds/src-noconflict/ext-language_tools";
 
 const laguages = ref([
   "java",
-  "cpp(暂不支持)"
+  "c/cpp(暂不支持)"
 ])
 
 // 创建响应式引用
