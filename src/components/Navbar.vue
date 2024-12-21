@@ -16,7 +16,7 @@
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item @click="goUserInfo">
+            <el-dropdown-item @click="goUserDetail">
               <div class="oj-navabar-item">
                 <span>个人中心</span>
               </div>
@@ -70,13 +70,13 @@ function goMyExam() {
   router.push('/c-oj/home/user/exam')
 }
 
-// function goUserDetail() {
-//   router.push('/c-oj/home/user/detail')
-// }
+function goUserDetail() {
+  router.push('/c-oj/home/user/detail')
+}
 
-// function goMessage() {
-//   router.push('/c-oj/home/user/message')
-// }
+function goMessage() {
+  router.push('/c-oj/home/user/message')
+}
 
 
 async function handleLogout() {

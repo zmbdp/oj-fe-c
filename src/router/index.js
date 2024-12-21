@@ -30,18 +30,18 @@ const router = createRouter({
           component: () => import('@/views/UserExam.vue'),
           meta: {showBanner: false}
         },
-        // {
-        //   path: 'user/message',
-        //   name: 'userMessage',
-        //   component: () => import('@/views/UserMessage.vue'),
-        //   meta: {showBanner: false}
-        // },
-        // {
-        //   path: 'user/detail',
-        //   name: 'userDetail',
-        //   component: () => import('@/views/UserDetail.vue'),
-        //   meta: {showBanner: false}
-        // },
+        {
+          path: 'user/message',
+          name: 'userMessage',
+          component: () => import('@/views/UserMessage.vue'),
+          meta: {showBanner: false}
+        },
+        {
+          path: 'user/detail',
+          name: 'userDetail',
+          component: () => import('@/views/UserDetail.vue'),
+          meta: {showBanner: false}
+        },
       ]
     },
     {
@@ -49,11 +49,11 @@ const router = createRouter({
       name: "login",
       component: () => import("@/views/Login.vue"),
     },
-    // {
-    //   path: "/c-oj/anwser",
-    //   name: "anwser",
-    //   component: () => import("@/views/Answer.vue"),
-    // },
+    {
+      path: "/c-oj/anwser",
+      name: "anwser",
+      component: () => import("@/views/Answer.vue"),
+    },
   ]
 })
 

@@ -68,7 +68,7 @@
         </el-table>
         <el-pagination class="range_page" background layout="total, sizes, prev, pager, next, jumper" :total="rankTotal"
             v-model:current-page="rankParams.pageNum" v-model:page-size="rankParams.pageSize"
-            :page-sizes="[5, 10, 15, 20]" @size-change="handleRankSizeChange"
+            :page-sizes="[5, 10, 30, 50]" @size-change="handleRankSizeChange"
             @current-change="handleRankCurrentChange" />
     </el-dialog>
 
@@ -208,7 +208,7 @@ function goExam(exam) {
 const rankParams = reactive({
     examId: '',
     pageNum: 1,
-    pageSize: 9,
+    pageSize: 10,
 })
 const examRankList = ref([])
 const rankTotal = ref(0)

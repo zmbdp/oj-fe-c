@@ -41,7 +41,7 @@
           </el-table>
           <!-- 分页区域 -->
           <el-pagination background layout="total, sizes, prev, pager, next, jumper" :total="total"
-            v-model:current-page="params.pageNum" v-model:page-size="params.pageSize" :page-sizes="[5, 10, 15, 20]"
+            v-model:current-page="params.pageNum" v-model:page-size="params.pageSize" :page-sizes="[5, 10, 30, 50]"
             @size-change="handleSizeChange" @current-change="handleCurrentChange"
             style="margin:20px 100px 20px 0; justify-content: flex-end" />
         </page-container>
@@ -108,7 +108,7 @@
   
   function onReset() {
     params.pageNum = 1
-    params.pageSize = 9
+    params.pageSize = 10
     params.difficulty = ''
     params.keyword = ''
     getQuestionList()
@@ -341,5 +341,3 @@
     }
   }
   </style>
-  
-  <!-- npm install ace-builds@1.4.13 -->

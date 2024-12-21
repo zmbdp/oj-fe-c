@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ace-builds": "^1.4.13",
     "axios": "^1.7.9",
     "element-plus": "^2.9.0",
     "js-cookie": "^3.0.5",
