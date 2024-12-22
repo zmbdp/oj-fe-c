@@ -151,7 +151,7 @@ async function nextQuestion() {
 }
 
 function handleCountdownFinish() {
-    ElMessage.info('竞赛已经结束了哦')
+    ElMessage.info('竞赛已结束')
     router.push('/c-oj/home/exam')
 }
 
