@@ -8,6 +8,13 @@ export function getQuestionListService(params) {
   });
 }
 
+export function getHotQuestionListService() {
+  return service({
+    url: "/question/semiLogin/hotList",
+    method: "get"
+  });
+}
+
 export function getQuestionDetailService(questionId) {
   return service({
     url: "/question/detail",
