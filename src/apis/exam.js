@@ -44,7 +44,7 @@ export function examPreQuestionService(examId, questionId) {
   return service({
     url: "/exam/preQuestion",
     method: "get",
-    params: { examId,questionId},
+    params: { examId, questionId },
   });
 }
 

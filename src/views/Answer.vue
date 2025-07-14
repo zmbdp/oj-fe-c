@@ -192,8 +192,9 @@ function stopPolling() {
 async function submitQuestion() {
     submitDTO.examId = examId
     submitDTO.questionId = questionId
-    await userSubmitService(submitDTO)
     currentTime = new Date().toLocaleString();
+    console.log("submitQuestion currentTime:", currentTime)
+    await userSubmitService(submitDTO)
     userQuestionResultVO.value.pass = 3
     startPolling()
 }
