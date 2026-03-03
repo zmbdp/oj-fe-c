@@ -25,7 +25,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/dev-api": {
-        target: "http://127.0.0.1:19090/friend",  // 这里需要修正 http:// 地址
+        target: "http://127.0.0.1:19090/friend",  // 这里需要修正 http:// 地址为云服务器内网ip
         rewrite: (p) => p.replace(/^\/dev-api/, ""),
       },
     },
